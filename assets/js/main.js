@@ -77,14 +77,16 @@ function playGame(quesbank) {
 function setDragDrop() {
     var i =0;
     $(".answerblock").each(function() {
-            $(this).attr("mxkeystrlogslotid", i);
-            var class_ = ".choicesblock" + $(this).attr("mxkeystrlogslotid");
+            $(this).attr("mxkeystrlogslotid", i + "" + (i+1) + "" + (i+2));
+            var class_ = ".choicesblock" + $(this).attr("mxkeystrlogslotid")[0];
             $(this).droppable({
                 accept: class_,
                 drop: function() {
                     $(this).find('span').html($(class_).html());
+                    $(class_).animate({visibility: "hidden", opacity: 0}, 400);
                     setTimeout(function() {
                         $(this).find('span').fadeIn(1000);
+                        $(class_).animate({visibility: "visible", opacity: 1}, 400);
                     },400);
                     $(class_).addClass("no-click less-opacity strike-through");
                     setTimeout(function() {
@@ -100,8 +102,8 @@ function setDragDrop() {
         $(".choicesblock" + i).draggable({
             containment: "#ptotemy-game",
             scroll: "false",
-            revert: "invalid",
-            helper: "clone"
+            revert: true,
+            opacity: 0.7
         });
     }
 }

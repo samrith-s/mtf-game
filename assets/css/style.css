@@ -40,9 +40,7 @@
     margin: 5%;
     height: 85%;
     width: 40%;
-/*    border:5px #fff solid;*/
     border-top: 0;
-/*    background: #9e1a00;*/
 }
 
 #bucket2 {
@@ -70,8 +68,8 @@
     vertical-align: middle;
     text-align: center;
     width: auto;
-} 
-    
+    cursor: move;
+}  
 
 #messages {
     background: rgba(1,1,1,0.7);
